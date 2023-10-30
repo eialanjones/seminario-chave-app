@@ -12,7 +12,7 @@ interface PageProps {
   };
 }
 
-export default async function Page(props: PageProps) {
+export default async function Home(props: PageProps) {
   const homepageContent = await builder
     .get('homepage', {
       prerender: false,

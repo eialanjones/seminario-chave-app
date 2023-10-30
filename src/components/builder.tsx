@@ -10,17 +10,17 @@ import DefaultErrorPage from "next/error";
 // with a `content` property type `any`
 interface BuilderPageProps {
   content: any;
-  model?: any;
+  model: 'page' | 'homepage';
 }
 
-export function RenderBuilderContent({ content }: BuilderPageProps) {
+export function RenderBuilderContent({ content, model }: BuilderPageProps) {
   // Call the useIsPreviewing hook to determine if 
   // the page is being previewed in Builder
   const isPreviewing = useIsPreviewing();
   // If `content` has a value or the page is being previewed in Builder,
   // render the BuilderComponent with the specified content and model props.
   if (content || isPreviewing) {
-    return <BuilderComponent content={content} model="page" />;
+    return <BuilderComponent content={content} model={model} />;
   }
   // If the `content` is falsy and the page is 
   // not being previewed in Builder, render the 
