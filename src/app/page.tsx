@@ -14,7 +14,11 @@ interface PageProps {
 
 export default async function Home(props: PageProps) {
   const homepageContent = await builder
-    .get('homepage', {
+    .get('page', {
+      userAttributes: {
+        // Use the page path specified in the URL to fetch the content
+        urlPath: "/homepage",
+      },
       prerender: false,
     })
     .toPromise();
